@@ -62,6 +62,8 @@ syn keyword qmlReserved          abstract boolean byte char class const debugger
 
 syn keyword qmlFunction function
 syn region	qmlBlock		start="{" end="}" transparent fold
+syn match qmlBraces "[{}\[\]]"
+syn match qmlParens "[()]"
 
 syn sync ccomment qmlComment
 
