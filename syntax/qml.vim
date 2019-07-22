@@ -61,8 +61,7 @@ syn keyword qmlDeclaration       property signal readonly
 syn keyword qmlReserved          abstract boolean byte char class const debugger enum export extends final float goto implements import interface long native package pragma private protected public short static super synchronized throws transient volatile
 
 syn keyword qmlFunction function
-syn region	qmlBlock		start="{" end="}" transparent fold
-syn match qmlBraces "[{}\[\]]"
+syn region	qmlBraces		start="{" end="}" transparent fold
 syn match qmlParens "[()]"
 
 syn sync ccomment qmlComment
