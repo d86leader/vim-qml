@@ -66,7 +66,6 @@ syn region	qmlBlock		start="{" end="}" transparent fold
 syn sync ccomment qmlComment
 
 setlocal foldmethod=syntax
-setlocal foldtext=getline(v:foldstart)
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
