@@ -60,27 +60,13 @@ syn keyword qmlGlobal            self
 syn keyword qmlDeclaration       property signal readonly
 syn keyword qmlReserved          abstract boolean byte char class const debugger enum export extends final float goto implements import interface long native package pragma private protected public short static super synchronized throws transient volatile
 
-if get(g:, 'qml_fold', 0)
-  syn match   qmlFunction      "\<function\>"
-  syn region  qmlFunctionFold  start="\<function\>.*[^};]$" end="^\z1}.*$" transparent fold keepend
+syn keyword qmlFunction function
+syn region	qmlBlock		start="{" end="}" transparent fold
 
-  syn sync match qmlSync  grouphere qmlFunctionFold "\<function\>"
-  syn sync match qmlSync  grouphere NONE "^}"
+syn sync ccomment qmlComment
 
-  setlocal foldmethod=syntax
-  setlocal foldtext=getline(v:foldstart)
-else
-  syn keyword qmlFunction function
-  syn match   qmlBraces   "[{}\[\]]"
-  syn match   qmlParens   "[()]"
-endif
-
-syn sync fromstart
-syn sync maxlines=100
-
-if main_syntax == "qml"
-  syn sync ccomment qmlComment
-endif
+setlocal foldmethod=syntax
+setlocal foldtext=getline(v:foldstart)
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
